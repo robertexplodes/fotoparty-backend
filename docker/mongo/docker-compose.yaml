@@ -1,0 +1,11 @@
+mongo:
+  image: mongo:3.4.2
+  environment:
+    # provide your credentials here
+    - MONGO_INITDB_ROOT_USERNAME=mongo
+    - MONGO_INITDB_ROOT_PASSWORD=mongo
+  ports:
+    - "27017:27017"
+  volumes:
+    - "$PWD/mongo-entrypoint/:/docker-entrypoint-initdb.d/"
+  command: mongod
